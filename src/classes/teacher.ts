@@ -14,4 +14,5 @@ export class Teacher extends User implements TeacherInterface {
   ) {
     super(id, name, email, birthDate);
   }
+  getFaculties = (): TEACHER_FACULTY[] => this.faculties;
 }

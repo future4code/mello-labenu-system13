@@ -1,8 +1,9 @@
 import * as inquirer from "inquirer";
-import { createStudent } from "./createStudent";
-import { createTeacher } from "./createTeacher";
 import { TEACHER_FACULTY } from "./interfaces/teacherInterface";
 import { UsersManager } from "./classes/usersManager";
+import { MainTaskManager } from "./classes/mainTaskManager";
+import { Student } from "./classes/student";
+import { Teacher } from "./classes/teacher";
 
 inquirerCli();
 
@@ -10,6 +11,7 @@ export function inquirerCli() {
   inquirer
     .prompt({
       type: "list",
+      pageSize: 10,
       name: "operation",
       message: "Escolha uma operacao:",
       choices: [
@@ -19,6 +21,9 @@ export function inquirerCli() {
         "Adicionar estudante na turma",
         "Adicionar docente na turma",
         "Pegar idade de estudante pelo id",
+        "Imprimir estudantes",
+        "Imprimir professores",
+        "Executar testes",
       ],
     })
     .then((res) => {
@@ -58,7 +63,7 @@ export function inquirerCli() {
               },
             ])
             .then((answers) => {
-              createStudent(
+              UsersManager.createStudent(
                 answers.name,
                 answers.email,
                 answers.birthday,
@@ -107,7 +112,7 @@ export function inquirerCli() {
               },
             ])
             .then((answers) => {
-              createTeacher(
+              UsersManager.createTeacher(
                 answers.name,
                 answers.email,
                 answers.birthday,
@@ -135,7 +140,7 @@ export function inquirerCli() {
               },
               {
                 type: "input",
-                name: "startDate",
+                name: "finishDate",
                 message: "Digite a data de termino:",
                 validate: (val) =>
                   val.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/gm)
@@ -147,13 +152,17 @@ export function inquirerCli() {
           break;
         }
         case "Adicionar estudante na turma": {
+          const students: Student[] = UsersManager.getStudentsList();
+          const studentsOptions: string[] = students.map((item) =>
+            item.getName()
+          );
           inquirer
             .prompt([
               {
-                type: "list",
+                type: "rawlist",
                 name: "student",
                 message: "Escolha o estudante:",
-                choices: ["estudante1", "estudante2"],
+                choices: studentsOptions,
               },
               {
                 type: "list",
@@ -168,13 +177,17 @@ export function inquirerCli() {
           break;
         }
         case "Adicionar docente na turma": {
+          const teachers: Teacher[] = UsersManager.getTeachersList();
+          const teachersOptions: string[] = teachers.map((item) =>
+            item.getName()
+          );
           inquirer
             .prompt([
               {
-                type: "list",
+                type: "rawlist",
                 name: "teacher",
-                message: "Escolha o estudante:",
-                choices: ["Soter", "Amanda"],
+                message: "Escolha o professor:",
+                choices: teachersOptions,
               },
               {
                 type: "list",
@@ -183,7 +196,9 @@ export function inquirerCli() {
                 choices: ["Mello", "Turing"],
               },
             ])
-            .then((answers) => {});
+            .then((answers) => {
+              console.log(answers);
+            });
           break;
         }
         case "Pegar idade de estudante pelo id": {
@@ -201,6 +216,17 @@ export function inquirerCli() {
               );
             });
           break;
+        }
+        case "Imprimir estudantes": {
+          MainTaskManager.printAllStudents();
+          break;
+        }
+        case "Imprimir professores": {
+          MainTaskManager.printAllTeachers();
+          break;
+        }
+        case "Executar testes": {
+          MainTaskManager.exec();
         }
         default:
           break;
