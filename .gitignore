@@ -1,0 +1,11 @@
+package-lock.json
+build/
+src (copy)/
+
+# Dependency directories
+node_modules/
+
+# Data files
+missions.json
+students.json
+teachers.json

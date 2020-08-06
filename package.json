@@ -1,0 +1,31 @@
+{
+  "name": "mello-labenu-system13",
+  "version": "1.0.0",
+  "description": "Você estuda na Labenu_ há tanto tempo que já parecem anos, não é? Então, hoje, vamos pedir para criar um sistema que represente o básico da nossa organização.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node ./src/index.ts",
+    "cli": "ts-node ./src/inquirerCli.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/future4code/mello-labenu-system13.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/future4code/mello-labenu-system13/issues"
+  },
+  "homepage": "https://github.com/future4code/mello-labenu-system13#readme",
+  "dependencies": {
+    "@types/inquirer": "^7.3.0",
+    "@types/node": "^14.0.27",
+    "colors": "^1.4.0",
+    "inquirer": "^7.3.3",
+    "moment": "^2.27.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
