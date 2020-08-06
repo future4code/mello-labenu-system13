@@ -13,6 +13,7 @@ export function inquirerCli() {
   inquirer
     .prompt({
       type: "list",
+      pageSize: 10,
       name: "operation",
       message: "Escolha uma operacao:",
       choices: [
@@ -160,7 +161,7 @@ export function inquirerCli() {
           inquirer
             .prompt([
               {
-                type: "list",
+                type: "rawlist",
                 name: "student",
                 message: "Escolha o estudante:",
                 choices: studentsOptions,
@@ -185,9 +186,9 @@ export function inquirerCli() {
           inquirer
             .prompt([
               {
-                type: "list",
+                type: "rawlist",
                 name: "teacher",
-                message: "Escolha o estudante:",
+                message: "Escolha o professor:",
                 choices: teachersOptions,
               },
               {
