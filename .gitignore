@@ -1,0 +1,7 @@
+package-lock.json
+build/
+users.json
+src (copy)/
+
+# Dependency directories
+node_modules/
