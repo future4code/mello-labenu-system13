@@ -1,6 +1,7 @@
 import * as inquirer from "inquirer";
-// import { UsersManager } from "./usersManager";
-// import { createUser } from "./createUser";
+import { createStudent } from "./createStudent";
+import { createTeacher } from "./createTeacher";
+import { TEACHER_FACULTY } from "./interfaces/teacherInterface";
 
 inquirerCli();
 
@@ -52,15 +53,24 @@ export function inquirerCli() {
               {
                 type: "input",
                 name: "hobbies",
-                message: "Digite os hobbies:",
+                message: "Digite os hobbies separados por virgulas:",
               },
             ])
             .then((answers) => {
-              // createUser(answers.name, answers.email, answers.birthday);
+              createStudent(
+                answers.name,
+                answers.email,
+                answers.birthday,
+                answers.hobbies.split(",")
+              );
             });
           break;
         }
         case "Criar docente": {
+          const options = [];
+          for (let faculty in TEACHER_FACULTY) {
+            options.push(faculty);
+          }
           inquirer
             .prompt([
               {
@@ -89,12 +99,20 @@ export function inquirerCli() {
                     : "Formato invalido",
               },
               {
-                type: "input",
+                type: "checkbox",
                 name: "faculties",
                 message: "Digite as especialidades:",
+                choices: options,
               },
             ])
-            .then((answers) => {});
+            .then((answers) => {
+              createTeacher(
+                answers.name,
+                answers.email,
+                answers.birthday,
+                answers.faculties
+              );
+            });
           break;
         }
         case "Criar turma": {
