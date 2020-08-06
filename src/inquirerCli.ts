@@ -154,7 +154,9 @@ export function inquirerCli() {
         }
         case "Adicionar estudante na turma": {
           const students: Student[] = UsersManager.getStudentsList();
-          const studentsOptions = students.map((item) => item.getName());
+          const studentsOptions: string[] = students.map((item) =>
+            item.getName()
+          );
           inquirer
             .prompt([
               {
@@ -176,13 +178,17 @@ export function inquirerCli() {
           break;
         }
         case "Adicionar docente na turma": {
+          const teachers: Teacher[] = UsersManager.getTeachersList();
+          const teachersOptions: string[] = teachers.map((item) =>
+            item.getName()
+          );
           inquirer
             .prompt([
               {
                 type: "list",
                 name: "teacher",
                 message: "Escolha o estudante:",
-                choices: ["Soter", "Amanda"],
+                choices: teachersOptions,
               },
               {
                 type: "list",
@@ -191,7 +197,9 @@ export function inquirerCli() {
                 choices: ["Mello", "Turing"],
               },
             ])
-            .then((answers) => {});
+            .then((answers) => {
+              console.log(answers);
+            });
           break;
         }
         case "Pegar idade de estudante pelo id": {
