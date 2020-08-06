@@ -10,10 +10,12 @@ export abstract class User {
   ) {
     User.usersCount++;
   }
+
   getId = (): number => this.id;
   getName = (): string => this.name;
   getEmail = (): string => this.email;
   getBirthday = (): string => this.birthday;
+
   getAge = (): number =>
     moment().diff(moment(this.birthday, "DD/MM/YYYY"), "years");
   static getUsersCount = (): number => User.usersCount;

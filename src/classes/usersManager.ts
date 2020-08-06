@@ -52,6 +52,7 @@ export abstract class UsersManager {
       birthday,
       hobbies
     );
+
     UsersManager.studentsList.push(student);
     JSONFileManager.writeToDatabase(
       "./src/students.json",
@@ -72,6 +73,7 @@ export abstract class UsersManager {
       birthday,
       faculties
     );
+
     UsersManager.teachersList.push(teacher);
     JSONFileManager.writeToDatabase(
       "./src/teachers.json",

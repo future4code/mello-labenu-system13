@@ -1,6 +1,4 @@
 import * as inquirer from "inquirer";
-import { createStudent } from "./createStudent";
-import { createTeacher } from "./createTeacher";
 import { TEACHER_FACULTY } from "./interfaces/teacherInterface";
 import { UsersManager } from "./classes/usersManager";
 import { MainTaskManager } from "./classes/mainTaskManager";
@@ -65,7 +63,7 @@ export function inquirerCli() {
               },
             ])
             .then((answers) => {
-              createStudent(
+              UsersManager.createStudent(
                 answers.name,
                 answers.email,
                 answers.birthday,
@@ -114,7 +112,7 @@ export function inquirerCli() {
               },
             ])
             .then((answers) => {
-              createTeacher(
+              UsersManager.createTeacher(
                 answers.name,
                 answers.email,
                 answers.birthday,

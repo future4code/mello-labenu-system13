@@ -11,4 +11,5 @@ export class Student extends User implements StudentInterface {
   ) {
     super(id, name, email, birthDate);
   }
+  getHobbies = (): string[] => this.hobbies;
 }

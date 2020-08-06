@@ -1,5 +1,3 @@
-import { createStudent } from "../createStudent";
-import { createTeacher } from "../createTeacher";
 import { TEACHER_FACULTY } from "../interfaces/teacherInterface";
 import { Student } from "./student";
 import { UsersManager } from "./usersManager";
@@ -8,45 +6,55 @@ import { Teacher } from "./teacher";
 
 export abstract class MainTaskManager {
   public static exec = () => {
-    createTeacher(
+    UsersManager.createTeacher(
       "Primeiro Professor",
       "primeiro@professor.com",
       "22/02/1980",
       [TEACHER_FACULTY.BACKEND, TEACHER_FACULTY.OOP]
     );
 
-    createTeacher("Segundo Professor", "segundo@professor.com", "22/02/1998", [
-      TEACHER_FACULTY.CSS,
-      TEACHER_FACULTY.REACT,
-      TEACHER_FACULTY.REDUX,
-    ]);
+    UsersManager.createTeacher(
+      "Segundo Professor",
+      "segundo@professor.com",
+      "22/02/1998",
+      [TEACHER_FACULTY.CSS, TEACHER_FACULTY.REACT, TEACHER_FACULTY.REDUX]
+    );
 
-    createTeacher(
+    UsersManager.createTeacher(
       "Terceiro Professor",
       "terceiro@professor.com",
       "22/02/1980",
       [TEACHER_FACULTY.TESTES, TEACHER_FACULTY.TYPESCRIPT]
     );
 
-    createTeacher("Quarto Professor", "quarto@professor.com", "22/02/1988", [
-      TEACHER_FACULTY.BACKEND,
-      TEACHER_FACULTY.CSS,
-      TEACHER_FACULTY.OOP,
-      TEACHER_FACULTY.REACT,
-      TEACHER_FACULTY.REDUX,
-      TEACHER_FACULTY.TESTES,
-      TEACHER_FACULTY.TYPESCRIPT,
-    ]);
-    createStudent(
+    UsersManager.createTeacher(
+      "Quarto Professor",
+      "quarto@professor.com",
+      "22/02/1988",
+      [
+        TEACHER_FACULTY.BACKEND,
+        TEACHER_FACULTY.CSS,
+        TEACHER_FACULTY.OOP,
+        TEACHER_FACULTY.REACT,
+        TEACHER_FACULTY.REDUX,
+        TEACHER_FACULTY.TESTES,
+        TEACHER_FACULTY.TYPESCRIPT,
+      ]
+    );
+
+    UsersManager.createStudent(
       "Primeiro Estudante",
       "primeiro@estudante.com",
       "11/11/1999",
       ["estudar", "programar"]
     );
-    createStudent("Segundo Estudante", "segundo@estudante.com", "11/11/1990", [
-      "pedalar",
-      "comer",
-    ]);
+
+    UsersManager.createStudent(
+      "Segundo Estudante",
+      "segundo@estudante.com",
+      "11/11/1990",
+      ["pedalar", "comer"]
+    );
   };
 
   public static printAllStudents = (): void => {
@@ -69,6 +77,7 @@ export abstract class MainTaskManager {
       console.log();
     }
   };
+
   public static printAllTeachers = (): void => {
     const teachers: Teacher[] = UsersManager.getTeachersList();
     for (const teacher of teachers) {
