@@ -4,6 +4,8 @@ import { createTeacher } from "./createTeacher";
 import { TEACHER_FACULTY } from "./interfaces/teacherInterface";
 import { UsersManager } from "./classes/usersManager";
 import { MainTaskManager } from "./classes/mainTaskManager";
+import { Student } from "./classes/student";
+import { Teacher } from "./classes/teacher";
 
 inquirerCli();
 
@@ -139,7 +141,7 @@ export function inquirerCli() {
               },
               {
                 type: "input",
-                name: "startDate",
+                name: "finishDate",
                 message: "Digite a data de termino:",
                 validate: (val) =>
                   val.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/gm)
@@ -151,13 +153,15 @@ export function inquirerCli() {
           break;
         }
         case "Adicionar estudante na turma": {
+          const students: Student[] = UsersManager.getStudentsList();
+          const studentsOptions = students.map((item) => item.getName());
           inquirer
             .prompt([
               {
                 type: "list",
                 name: "student",
                 message: "Escolha o estudante:",
-                choices: ["estudante1", "estudante2"],
+                choices: studentsOptions,
               },
               {
                 type: "list",

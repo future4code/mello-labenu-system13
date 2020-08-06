@@ -26,10 +26,27 @@ export abstract class MainTaskManager {
       [TEACHER_FACULTY.BACKEND, TEACHER_FACULTY.OOP]
     );
 
-    createTeacher("Segundo Professor", "segundo@professor.com", "22/02/1988", [
+    createTeacher("Segundo Professor", "segundo@professor.com", "22/02/1998", [
       TEACHER_FACULTY.CSS,
       TEACHER_FACULTY.REACT,
       TEACHER_FACULTY.REDUX,
+    ]);
+
+    createTeacher(
+      "Terceiro Professor",
+      "terceiro@professor.com",
+      "22/02/1980",
+      [TEACHER_FACULTY.TESTES, TEACHER_FACULTY.TYPESCRIPT]
+    );
+
+    createTeacher("Quarto Professor", "quarto@professor.com", "22/02/1988", [
+      TEACHER_FACULTY.BACKEND,
+      TEACHER_FACULTY.CSS,
+      TEACHER_FACULTY.OOP,
+      TEACHER_FACULTY.REACT,
+      TEACHER_FACULTY.REDUX,
+      TEACHER_FACULTY.TESTES,
+      TEACHER_FACULTY.TYPESCRIPT,
     ]);
   };
 
