@@ -2,6 +2,7 @@ import * as inquirer from "inquirer";
 import { createStudent } from "./createStudent";
 import { createTeacher } from "./createTeacher";
 import { TEACHER_FACULTY } from "./interfaces/teacherInterface";
+import { UsersManager } from "./classes/usersManager";
 
 inquirerCli();
 
@@ -194,7 +195,11 @@ export function inquirerCli() {
               validate: (val) =>
                 val.match(/^[0-9]+$/) ? true : "Digite um numero",
             })
-            .then((answers) => {});
+            .then((answers) => {
+              console.log(
+                UsersManager.getStudentAgeById(Number(answers.studentId))
+              );
+            });
           break;
         }
         default:
