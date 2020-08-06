@@ -2,6 +2,8 @@ import * as inquirer from "inquirer";
 // import { UsersManager } from "./usersManager";
 // import { createUser } from "./createUser";
 
+inquirerCli();
+
 export function inquirerCli() {
   inquirer
     .prompt({
