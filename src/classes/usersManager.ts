@@ -1,3 +1,4 @@
+import { User } from "./user";
 import { Student } from "./student";
 import { Teacher } from "./teacher";
 import { TEACHER_FACULTY } from "../interfaces/teacherInterface";
@@ -11,6 +12,7 @@ export abstract class UsersManager {
     (item) =>
       new Student(item.id, item.name, item.email, item.birthday, item.hobbies)
   );
+
   private static teachersList: Teacher[] = JSONFileManager.readDatabase(
     "./src/teachers.json"
   ).map(
@@ -44,7 +46,7 @@ export abstract class UsersManager {
     hobbies: string[]
   ): void => {
     const student = new Student(
-      UsersManager.studentsList.length,
+      User.getUsersCount(),
       name,
       email,
       birthday,
@@ -64,7 +66,7 @@ export abstract class UsersManager {
     faculties: TEACHER_FACULTY[]
   ): void => {
     const teacher = new Teacher(
-      UsersManager.teachersList.length,
+      User.getUsersCount(),
       name,
       email,
       birthday,

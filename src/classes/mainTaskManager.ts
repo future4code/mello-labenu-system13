@@ -8,17 +8,6 @@ import { Teacher } from "./teacher";
 
 export abstract class MainTaskManager {
   public static exec = () => {
-    createStudent(
-      "Primeiro Estudante",
-      "primeiro@estudante.com",
-      "11/11/1999",
-      ["estudar", "programar"]
-    );
-    createStudent("Segundo Estudante", "segundo@estudante.com", "11/11/1990", [
-      "pedalar",
-      "comer",
-    ]);
-
     createTeacher(
       "Primeiro Professor",
       "primeiro@professor.com",
@@ -47,6 +36,16 @@ export abstract class MainTaskManager {
       TEACHER_FACULTY.REDUX,
       TEACHER_FACULTY.TESTES,
       TEACHER_FACULTY.TYPESCRIPT,
+    ]);
+    createStudent(
+      "Primeiro Estudante",
+      "primeiro@estudante.com",
+      "11/11/1999",
+      ["estudar", "programar"]
+    );
+    createStudent("Segundo Estudante", "segundo@estudante.com", "11/11/1990", [
+      "pedalar",
+      "comer",
     ]);
   };
 
