@@ -47,6 +47,9 @@ export abstract class MainTaskManager {
           "Idade:".padEnd(10) + student.getAge().toString().padEnd(50)
         )
       );
+      console.log(
+        colors.bgBlack.bold("Curso:".padEnd(10) + "Web Full Stack".padEnd(50))
+      );
       console.log();
     }
   };
