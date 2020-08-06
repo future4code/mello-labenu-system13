@@ -21,6 +21,7 @@ export function inquirerCli() {
         "Adicionar docente na turma",
         "Pegar idade de estudante pelo id",
         "Imprimir estudantes",
+        "Imprimir professores",
         "Executar testes",
       ],
     })
@@ -207,6 +208,10 @@ export function inquirerCli() {
         }
         case "Imprimir estudantes": {
           MainTaskManager.printAllStudents();
+          break;
+        }
+        case "Imprimir professores": {
+          MainTaskManager.printAllTeachers();
           break;
         }
         case "Executar testes": {
