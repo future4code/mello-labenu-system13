@@ -3,6 +3,7 @@ import { createStudent } from "./createStudent";
 import { createTeacher } from "./createTeacher";
 import { TEACHER_FACULTY } from "./interfaces/teacherInterface";
 import { UsersManager } from "./classes/usersManager";
+import { MainTaskManager } from "./classes/mainTaskManager";
 
 inquirerCli();
 
@@ -19,6 +20,8 @@ export function inquirerCli() {
         "Adicionar estudante na turma",
         "Adicionar docente na turma",
         "Pegar idade de estudante pelo id",
+        "Imprimir estudantes",
+        "Executar testes",
       ],
     })
     .then((res) => {
@@ -201,6 +204,13 @@ export function inquirerCli() {
               );
             });
           break;
+        }
+        case "Imprimir estudantes": {
+          MainTaskManager.printAllStudents();
+          break;
+        }
+        case "Executar testes": {
+          MainTaskManager.exec();
         }
         default:
           break;

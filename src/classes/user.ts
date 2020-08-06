@@ -1,3 +1,5 @@
+import * as moment from "moment";
+
 export abstract class User {
   constructor(
     protected id: number,
@@ -9,4 +11,7 @@ export abstract class User {
   getName = (): string => this.name;
   getEmail = (): string => this.email;
   getBirthday = (): string => this.birthday;
+  getAge = (): number => {
+    return moment().diff(moment(this.birthday, "DD/MM/YYYY"), "years");
+  };
 }
