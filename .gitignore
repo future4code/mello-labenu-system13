@@ -6,6 +6,4 @@ src (copy)/
 node_modules/
 
 # Data files
-missions.json
-students.json
-teachers.json
+
