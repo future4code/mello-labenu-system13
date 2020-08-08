@@ -99,17 +99,23 @@ export abstract class MainTaskManager {
     const teachers: Teacher[] = UsersManager.getTeachersList();
     for (const teacher of teachers) {
       console.log(
-        colors.bgBlack.bold("Nome:".padEnd(10) + teacher.getName().padEnd(50))
+        colors.bgBlack.bold("Nome:".padEnd(10) + teacher.getName().padEnd(60))
       );
       console.log(
-        colors.bgBlack.bold("Email:".padEnd(10) + teacher.getEmail().padEnd(50))
+        colors.bgBlack.bold("Email:".padEnd(10) + teacher.getEmail().padEnd(60))
       );
       console.log(
         colors.bgBlack.bold(
-          "Idade:".padEnd(10) + teacher.getAge().toString().padEnd(50)
+          "Idade:".padEnd(10) + teacher.getAge().toString().padEnd(60)
         )
       );
-      console.log();
+      console.log(
+        colors.bgBlack.bold(
+          "Especialidades: " +
+            teacher.getFaculties().join(", ").padEnd(54) +
+            "\n"
+        )
+      );
     }
   };
 }
