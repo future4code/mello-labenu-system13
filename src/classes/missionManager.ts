@@ -8,7 +8,7 @@ import { Teacher } from "./teacher";
 
 export abstract class MissionManager {
   private static missionsList: Mission[] = JSONFileManager.readDatabase(
-    "./src/missions.json"
+    "./src/missions.txt"
   ).map((mission) => {
     if (mission.name.match(/(-na-night)$/)) {
       const nightMission = new NightMission(
@@ -85,7 +85,7 @@ export abstract class MissionManager {
     fullTimeMission.setName(name);
     MissionManager.missionsList.push(fullTimeMission);
     JSONFileManager.writeToDatabase(
-      "./src/missions.json",
+      "./src/missions.txt",
       MissionManager.missionsList
     );
   };
@@ -103,7 +103,7 @@ export abstract class MissionManager {
     nightMission.setName(name);
     MissionManager.missionsList.push(nightMission);
     JSONFileManager.writeToDatabase(
-      "./src/missions.json",
+      "./src/missions.txt",
       MissionManager.missionsList
     );
   };
@@ -118,7 +118,7 @@ export abstract class MissionManager {
     if (student && mission) {
       mission.addStudent(student);
       JSONFileManager.writeToDatabase(
-        "./src/missions.json",
+        "./src/missions.txt",
         MissionManager.missionsList
       );
     }
@@ -134,7 +134,7 @@ export abstract class MissionManager {
     if (teacher && mission) {
       mission.addTeacher(teacher);
       JSONFileManager.writeToDatabase(
-        "./src/missions.json",
+        "./src/missions.txt",
         MissionManager.missionsList
       );
     }
