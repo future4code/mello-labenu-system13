@@ -7,14 +7,14 @@ import * as moment from "moment";
 
 export abstract class UsersManager {
   private static studentsList: Student[] = JSONFileManager.readDatabase(
-    "./src/students.json"
+    "./src/students.txt"
   ).map(
     (item) =>
       new Student(item.id, item.name, item.email, item.birthday, item.hobbies)
   );
 
   private static teachersList: Teacher[] = JSONFileManager.readDatabase(
-    "./src/teachers.json"
+    "./src/teachers.txt"
   ).map(
     (item) =>
       new Teacher(item.id, item.name, item.email, item.birthday, item.faculties)
@@ -55,7 +55,7 @@ export abstract class UsersManager {
 
     UsersManager.studentsList.push(student);
     JSONFileManager.writeToDatabase(
-      "./src/students.json",
+      "./src/students.txt",
       UsersManager.studentsList
     );
   };
@@ -76,7 +76,7 @@ export abstract class UsersManager {
 
     UsersManager.teachersList.push(teacher);
     JSONFileManager.writeToDatabase(
-      "./src/teachers.json",
+      "./src/teachers.txt",
       UsersManager.teachersList
     );
   };

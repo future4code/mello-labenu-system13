@@ -1,5 +1,5 @@
 import { JSONFileManager } from "./JSONFileManager";
 
-JSONFileManager.writeToDatabase("./src/missions.json", []);
-JSONFileManager.writeToDatabase("./src/teachers.json", []);
-JSONFileManager.writeToDatabase("./src/students.json", []);
+JSONFileManager.writeToDatabase("./src/missions.txt", []);
+JSONFileManager.writeToDatabase("./src/teachers.txt", []);
+JSONFileManager.writeToDatabase("./src/students.txt", []);
