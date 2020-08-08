@@ -1,12 +1,12 @@
 ### Scripts
-- Cria 4 professores, 2 alunos e 2 missões. Adiciona alunos e professores às missões.
-`npm start`
-- Imprime todos os alunos
-`npm run print students`
-- Imprime todos os professores
-`npm run print teachers`
-- Abre interface na linha de comando com todas as operações disponíveis
-`npm run cli`
+- Cria 4 professores, 2 alunos e 2 missões. Adiciona alunos e professores às missões.\n
+`npm start`\n
+- Imprime todos os alunos\n
+`npm run print students`\n
+- Imprime todos os professores\n
+`npm run print teachers`\n
+- Abre interface na linha de comando com todas as operações disponíveis\n
+`npm run cli`\n
 
 ## LabenuSystem:
 
