@@ -46,7 +46,7 @@ export abstract class UsersManager {
     hobbies: string[]
   ): void => {
     const student = new Student(
-      User.getUsersCount(),
+      UsersManager.studentsList.length,
       name,
       email,
       birthday,
@@ -67,7 +67,7 @@ export abstract class UsersManager {
     faculties: TEACHER_FACULTY[]
   ): void => {
     const teacher = new Teacher(
-      User.getUsersCount(),
+      UsersManager.teachersList.length,
       name,
       email,
       birthday,
