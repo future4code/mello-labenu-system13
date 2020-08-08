@@ -1,3 +1,7 @@
 import { Mission } from "./mission";
 
-class FullTimeMission extends Mission {}
+export class FullTimeMission extends Mission {
+  public setName(name: string) {
+    super.setName(name);
+  }
+}

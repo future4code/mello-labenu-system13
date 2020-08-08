@@ -1,0 +1,18 @@
+[
+   {
+      "id": 0,
+      "startDate": "10/10/2020",
+      "endDate": "10/12/2021",
+      "teachers": [],
+      "students": [],
+      "name": "FullTimeMission"
+   },
+   {
+      "id": 1,
+      "startDate": "10/11/2020",
+      "endDate": "10/12/2021",
+      "teachers": [],
+      "students": [],
+      "name": "NightMission-na-night"
+   }
+]
