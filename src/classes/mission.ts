@@ -29,6 +29,10 @@ export abstract class Mission {
     return this.endDate;
   }
 
+  public getTeachers = (): Teacher[] => this.teachers;
+
+  public getStudents = (): Student[] => this.students;
+
   public getCurrentModule(): number | undefined {
     return this.currentModule;
   }

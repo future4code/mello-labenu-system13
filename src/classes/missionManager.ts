@@ -3,6 +3,8 @@ import { NightMission } from "./nightMission";
 import { FullTimeMission } from "./fullTimeMission";
 import { JSONFileManager } from "../JSONFileManager";
 import { UsersManager } from "./usersManager";
+import { Student } from "./student";
+import { Teacher } from "./teacher";
 
 export abstract class MissionManager {
   private static missionsList: Mission[] = JSONFileManager.readDatabase(
@@ -13,8 +15,26 @@ export abstract class MissionManager {
         mission.id,
         mission.startDate,
         mission.endDate,
-        mission.teachers,
-        mission.students,
+        mission.teachers.map(
+          (item: any) =>
+            new Teacher(
+              item.id,
+              item.name,
+              item.email,
+              item.birthday,
+              item.faculties
+            )
+        ),
+        mission.students.map(
+          (item: any) =>
+            new Student(
+              item.id,
+              item.name,
+              item.email,
+              item.birthday,
+              item.hobbies
+            )
+        ),
         mission.currentModule
       );
       nightMission.setName(mission.name);
@@ -24,8 +44,26 @@ export abstract class MissionManager {
       mission.id,
       mission.startDate,
       mission.endDate,
-      mission.teachers,
-      mission.students,
+      mission.teachers.map(
+        (item: any) =>
+          new Teacher(
+            item.id,
+            item.name,
+            item.email,
+            item.birthday,
+            item.faculties
+          )
+      ),
+      mission.students.map(
+        (item: any) =>
+          new Student(
+            item.id,
+            item.name,
+            item.email,
+            item.birthday,
+            item.hobbies
+          )
+      ),
       mission.currentModule
     );
     fullTimeMission.setName(mission.name);

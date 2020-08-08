@@ -1,1 +1,22 @@
-[]
+[
+   {
+      "id": 0,
+      "name": "Primeiro Estudante",
+      "email": "primeiro@estudante.com",
+      "birthday": "11/11/1999",
+      "hobbies": [
+         "estudar",
+         "programar"
+      ]
+   },
+   {
+      "id": 1,
+      "name": "Segundo Estudante",
+      "email": "segundo@estudante.com",
+      "birthday": "11/11/1990",
+      "hobbies": [
+         "pedalar",
+         "comer"
+      ]
+   }
+]

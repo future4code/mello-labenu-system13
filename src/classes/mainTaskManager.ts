@@ -75,23 +75,41 @@ export abstract class MainTaskManager {
   };
 
   public static printAllStudents = (): void => {
-    const students: Student[] = UsersManager.getStudentsList();
-    for (const student of students) {
-      console.log(
-        colors.bgBlack.bold("Nome:".padEnd(10) + student.getName().padEnd(50))
-      );
-      console.log(
-        colors.bgBlack.bold("Email:".padEnd(10) + student.getEmail().padEnd(50))
-      );
-      console.log(
-        colors.bgBlack.bold(
-          "Idade:".padEnd(10) + student.getAge().toString().padEnd(50)
-        )
-      );
-      console.log(
-        colors.bgBlack.bold("Curso:".padEnd(10) + "Web Full Stack".padEnd(50))
-      );
-      console.log();
+    for (const mission of MissionManager.getMissions()) {
+      for (const student of mission.getStudents()) {
+        console.log(
+          colors.bgBlack.bold("Nome:".padEnd(10) + student.getName().padEnd(50))
+        );
+        console.log(
+          colors.bgBlack.bold(
+            "Email:".padEnd(10) + student.getEmail().padEnd(50)
+          )
+        );
+        console.log(
+          colors.bgBlack.bold(
+            "Curso:".padEnd(10) +
+              "Web Full Stack " +
+              (mission.getName().match(/(-na-night)$/)
+                ? "Noturno"
+                : "Integral"
+              ).padEnd(35)
+          )
+        );
+        console.log(
+          colors.bgBlack.bold(
+            "Turma:".padEnd(10) +
+              mission
+                .getName()
+                .replace(/(-na-night)$/, "")
+                .padEnd(50)
+          )
+        );
+        console.log(
+          colors.bgBlack.bold(
+            "Idade:".padEnd(10) + student.getAge().toString().padEnd(50) + "\n"
+          )
+        );
+      }
     }
   };
 
