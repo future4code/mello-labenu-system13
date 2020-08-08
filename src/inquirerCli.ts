@@ -157,12 +157,13 @@ export function inquirerCli() {
                   answers.startDate,
                   answers.endDate
                 );
+              } else {
+                MissionManager.createFullTimeMission(
+                  answers.name,
+                  answers.startDate,
+                  answers.endDate
+                );
               }
-              MissionManager.createFullTimeMission(
-                answers.name,
-                answers.startDate,
-                answers.endDate
-              );
             });
           break;
         }
