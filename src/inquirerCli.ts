@@ -4,6 +4,8 @@ import { UsersManager } from "./classes/usersManager";
 import { MainTaskManager } from "./classes/mainTaskManager";
 import { Student } from "./classes/student";
 import { Teacher } from "./classes/teacher";
+import { Mission } from "./classes/mission";
+import { MissionManager } from "./classes/missionManager";
 
 inquirerCli();
 
@@ -140,7 +142,7 @@ export function inquirerCli() {
               },
               {
                 type: "input",
-                name: "finishDate",
+                name: "endDate",
                 message: "Digite a data de termino:",
                 validate: (val) =>
                   val.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/gm)
@@ -148,7 +150,20 @@ export function inquirerCli() {
                     : "Formato invalido",
               },
             ])
-            .then((answers) => {});
+            .then((answers) => {
+              if (answers.name.match(/(-na-night)$/)) {
+                MissionManager.createNightMission(
+                  answers.name,
+                  answers.startDate,
+                  answers.endDate
+                );
+              }
+              MissionManager.createFullTimeMission(
+                answers.name,
+                answers.startDate,
+                answers.endDate
+              );
+            });
           break;
         }
         case "Adicionar estudante na turma": {
@@ -156,23 +171,33 @@ export function inquirerCli() {
           const studentsOptions: string[] = students.map((item) =>
             item.getName()
           );
+          const missions: Mission[] = MissionManager.getMissions();
+          const missionsOptions: string[] = missions.map((item) =>
+            item.getName()
+          );
           inquirer
             .prompt([
               {
                 type: "rawlist",
-                name: "student",
+                name: "studentName",
                 message: "Escolha o estudante:",
                 choices: studentsOptions,
               },
               {
                 type: "list",
-                name: "class",
+                name: "missionName",
                 message: "Escolha a turma:",
-                choices: ["Mello", "Turing"],
+                choices: missionsOptions,
               },
             ])
             .then((answers) => {
-              console.log(answers);
+              const studentId = students
+                .find((item) => item.getName() === answers.studentName)
+                .getId();
+              const missionId = missions
+                .find((item) => item.getName() === answers.missionName)
+                .getId();
+              MissionManager.addStudentToMission(studentId, missionId);
             });
           break;
         }
@@ -181,23 +206,33 @@ export function inquirerCli() {
           const teachersOptions: string[] = teachers.map((item) =>
             item.getName()
           );
+          const missions: Mission[] = MissionManager.getMissions();
+          const missionsOptions: string[] = missions.map((item) =>
+            item.getName()
+          );
           inquirer
             .prompt([
               {
                 type: "rawlist",
-                name: "teacher",
+                name: "teacherName",
                 message: "Escolha o professor:",
                 choices: teachersOptions,
               },
               {
                 type: "list",
-                name: "class",
+                name: "missionName",
                 message: "Escolha a turma:",
-                choices: ["Mello", "Turing"],
+                choices: missionsOptions,
               },
             ])
             .then((answers) => {
-              console.log(answers);
+              const teacherId = teachers
+                .find((item) => item.getName() === answers.teacherName)
+                .getId();
+              const missionId = missions
+                .find((item) => item.getName() === answers.missionName)
+                .getId();
+              MissionManager.addTeacherToMission(teacherId, missionId);
             });
           break;
         }

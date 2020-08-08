@@ -17,7 +17,7 @@ export abstract class Mission {
     return this.id;
   }
 
-  public getName(name: string): string {
+  public getName(): string {
     return this.name;
   }
 
