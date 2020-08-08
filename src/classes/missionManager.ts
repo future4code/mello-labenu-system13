@@ -74,11 +74,11 @@ export abstract class MissionManager {
     const student = UsersManager.getStudentsList().find(
       (item) => item.getId() === studentId
     );
-    const missionIdx = MissionManager.missionsList.findIndex(
+    const mission = MissionManager.missionsList.find(
       (item) => item.getId() === missionId
     );
-    if (student && missionIdx !== -1) {
-      MissionManager.missionsList[missionIdx].addStudent(student);
+    if (student && mission) {
+      mission.addStudent(student);
       JSONFileManager.writeToDatabase(
         "./src/missions.json",
         MissionManager.missionsList
