@@ -66,13 +66,12 @@ export abstract class MainTaskManager {
       "10/11/2020",
       "10/12/2021"
     );
-    // MissionManager.addTeacherToMission(0, 0);
-    // MissionManager.addTeacherToMission(1, 0);
-    // MissionManager.addTeacherToMission(2, 1);
-    // MissionManager.addTeacherToMission(3, 1);
+    MissionManager.addTeacherToMission(0, 0);
+    MissionManager.addTeacherToMission(1, 0);
+    MissionManager.addTeacherToMission(2, 1);
+    MissionManager.addTeacherToMission(3, 1);
     MissionManager.addStudentToMission(0, 0);
-    MissionManager.addStudentToMission(1, 0);
-    MissionManager.addStudentToMission(1, 0);
+    MissionManager.addStudentToMission(1, 1);
   };
 
   public static printAllStudents = (): void => {

@@ -14,7 +14,7 @@ export abstract class MissionManager {
         mission.startDate,
         mission.endDate,
         mission.teachers,
-        mission.student,
+        mission.students,
         mission.currentModule
       );
       nightMission.setName(mission.name);
@@ -25,7 +25,7 @@ export abstract class MissionManager {
       mission.startDate,
       mission.endDate,
       mission.teachers,
-      mission.student,
+      mission.students,
       mission.currentModule
     );
     fullTimeMission.setName(mission.name);
