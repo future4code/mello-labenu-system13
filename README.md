@@ -1,32 +1,36 @@
 ### Scripts
-- Cria 4 professores, 2 alunos e 2 missões. Adiciona alunos e professores às missões.\n
-`npm start`\n
-- Imprime todos os alunos\n
-`npm run print students`\n
-- Imprime todos os professores\n
-`npm run print teachers`\n
-- Abre interface na linha de comando com todas as operações disponíveis\n
-`npm run cli`\n
+
+- Cria 4 professores, 2 alunos e 2 missões. Adiciona alunos e professores às missões.
+  `npm start`
+
+- Imprime todos os alunos
+  `npm run print students`
+
+- Imprime todos os professores
+  `npm run print teachers`
+
+- Abre interface na linha de comando com todas as operações disponíveis
+  `npm run cli`
 
 ## LabenuSystem:
 
-Você estuda na Labenu_ há tanto tempo que já parecem anos, não é? Então, hoje, vamos pedir para criar um sistema que represente o básico da nossa organização. 
+Você estuda na Labenu\_ há tanto tempo que já parecem anos, não é? Então, hoje, vamos pedir para criar um sistema que represente o básico da nossa organização.
 
 Ele deve possuir, ao menos, as 3 entidades importantes:
 
-1. Estudantes 
+1. Estudantes
 
-    Representa estudantes da nossa instituição. Eles devem possuir: id, nome, email, data de nascimento e os principais hobbies dele. 
+   Representa estudantes da nossa instituição. Eles devem possuir: id, nome, email, data de nascimento e os principais hobbies dele.
 
 2. Docente
 
-    Representa docentes da nossa instituição. Eles devem possuir: id, nome, email, data de nascimento e todas as especialidades dele. Há 7 especialidades: React, Redux, CSS, Testes, Typescript, Programação Orientada a Objetos e Backend
+   Representa docentes da nossa instituição. Eles devem possuir: id, nome, email, data de nascimento e todas as especialidades dele. Há 7 especialidades: React, Redux, CSS, Testes, Typescript, Programação Orientada a Objetos e Backend
 
 3. Turma
 
-    Toda turma é composta das seguintes características: id, nome, data de início, data de término, lista de professores responsáveis, uma lista de alunos e módulo atual em que a turma está.
+   Toda turma é composta das seguintes características: id, nome, data de início, data de término, lista de professores responsáveis, uma lista de alunos e módulo atual em que a turma está.
 
-    O módulo pode assumir os valores de 1 a 7 ou `undefined`, indicando que as aulas dessa turma ainda não começaram. Para esse exercício, vamos considerar que existam dois tipos de turma: integral ou noturna. Há uma restrição para o nome das turmas noturnas: tem que terminar com `-na-night`.
+   O módulo pode assumir os valores de 1 a 7 ou `undefined`, indicando que as aulas dessa turma ainda não começaram. Para esse exercício, vamos considerar que existam dois tipos de turma: integral ou noturna. Há uma restrição para o nome das turmas noturnas: tem que terminar com `-na-night`.
 
 As funcionalidades básicas são:
 
