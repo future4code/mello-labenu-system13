@@ -3,6 +3,8 @@ import { Student } from "./student";
 import { UsersManager } from "./usersManager";
 import * as colors from "colors";
 import { Teacher } from "./teacher";
+import { MissionManager } from "./missionManager";
+import { FullTimeMission } from "./fullTimeMission";
 
 export abstract class MainTaskManager {
   public static exec = () => {
@@ -54,6 +56,16 @@ export abstract class MainTaskManager {
       "segundo@estudante.com",
       "11/11/1990",
       ["pedalar", "comer"]
+    );
+    MissionManager.createFullTimeMission(
+      "FullTimeMission",
+      "10/10/2020",
+      "10/12/2021"
+    );
+    MissionManager.createNightMission(
+      "NightMission-na-night",
+      "10/11/2020",
+      "10/12/2021"
     );
   };
 

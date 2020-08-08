@@ -5,15 +5,15 @@ export abstract class Mission {
   private name: string = "";
 
   constructor(
-    private id: string,
-    private startDate: moment.Moment,
-    private endDate: moment.Moment,
+    private id: number,
+    private startDate: string,
+    private endDate: string,
     private teachers: Teacher[] = [],
     private students: Student[] = [],
     private currentModule?: number
   ) {}
 
-  public getId(): string {
+  public getId(): number {
     return this.id;
   }
 
@@ -21,11 +21,11 @@ export abstract class Mission {
     return this.name;
   }
 
-  public getStartDate(): moment.Moment {
+  public getStartDate(): string {
     return this.startDate;
   }
 
-  public getEndDate(): moment.Moment {
+  public getEndDate(): string {
     return this.endDate;
   }
 
