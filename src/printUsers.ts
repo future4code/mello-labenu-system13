@@ -10,6 +10,6 @@ switch (process.argv[2]) {
     break;
   }
   default:
-    console.log("Esperava mais um argumento =[ (teachers ou students)");
+    console.log("Argumento incorreto ou inexistente =[ (teachers ou students)");
     break;
 }
