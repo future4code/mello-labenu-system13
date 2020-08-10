@@ -1,4 +1,4 @@
-### Scripts
+## Scripts
 
 #### Cria 4 professores, 2 alunos e 2 missões. Adiciona alunos e professores às missões:
 
